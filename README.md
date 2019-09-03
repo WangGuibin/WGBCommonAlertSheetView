@@ -1,9 +1,16 @@
 # WGBCommonAlertSheetView
 
-[![CI Status](https://img.shields.io/travis/Wangguibin/WGBCommonAlertSheetView.svg?style=flat)](https://travis-ci.org/Wangguibin/WGBCommonAlertSheetView)
-[![Version](https://img.shields.io/cocoapods/v/WGBCommonAlertSheetView.svg?style=flat)](https://cocoapods.org/pods/WGBCommonAlertSheetView)
-[![License](https://img.shields.io/cocoapods/l/WGBCommonAlertSheetView.svg?style=flat)](https://cocoapods.org/pods/WGBCommonAlertSheetView)
-[![Platform](https://img.shields.io/cocoapods/p/WGBCommonAlertSheetView.svg?style=flat)](https://cocoapods.org/pods/WGBCommonAlertSheetView)
+<p align='center'>
+<a href="https://cocoapods.org/pods/WGBCommonAlertSheetView"> <img src="https://img.shields.io/cocoapods/p/WGBCommonAlertSheetView.svg?style=flat">  </a>
+<img src="https://img.shields.io/badge/build-passing-brightgreen.svg">
+<a href="https://cocoapods.org/pods/WGBCommonAlertSheetView"> <img src="https://img.shields.io/cocoapods/v/WGBCommonAlertSheetView.svg?style=flat"> </a>
+<img src="https://img.shields.io/badge/platform-iOS-ff69b4.svg">
+<img src="https://img.shields.io/badge/language-Objective--C-orange.svg">
+<a href=""><img src="https://img.shields.io/badge/license-MIT-000000.svg"></a>
+<a href="http://wangguibin.github.io"><img src="https://img.shields.io/badge/Blog-CoderWGB-80d4f9.svg?style=flat"></a>
+<img src="https://img.shields.io/badge/Used-welcome%20!-brightgreen.svg?colorA=a0cd34">
+</p>
+
 
 ## Example
 
