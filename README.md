@@ -22,7 +22,7 @@ pod 'WGBCommonAlertSheetView'
 
 ## Author
 
-Wangguibin, guchengye153@gmail.com
+Wangguibin, 864562082@qq.com
 
 ## License
 
