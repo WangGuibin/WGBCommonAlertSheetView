@@ -32,17 +32,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 蒙层的透明度 默认0.35
 @property (nonatomic,assign) CGFloat maskAlpha;
+
 //触摸蒙层dismiss 默认为YES
 @property (nonatomic,assign) BOOL touchDismiss;
 
+//默认YES 是否需要弹性 即触底反弹的特性
+@property (nonatomic,assign) BOOL bounce;
+
 //是否需要毛玻璃 默认是NO
 @property (nonatomic,assign) BOOL isNeedBlur;
+
 //毛玻璃的样式 这个必须设置不然没有任何效果 前提是`isNeedBlur=YES`
 @property (nonatomic,assign) WGBCommonAlertSheetViewBlurEffectStyle blurStyle;
 
 //展示到指定父视图上 superView为空即默认为放在主窗口keywindow上
 - (void)showAlertWithSuperView:(UIView * _Nullable)superView ;
+
+//展示
 - (void)show;
+
+//移除消失
 - (void)dismiss;
 
 @property (nonatomic,copy) dispatch_block_t showCompletionBlock; //展示之后

@@ -47,10 +47,7 @@
         self.containerView.alpha = 0.01;
         self.touchDismiss = YES;
         self.isNeedBlur = NO;
-        
-        // 添加手势
-        [self addGestureRecognizer:self.tapGesture];
-        [self addGestureRecognizer:self.panGesture];
+        self.bounce = YES;
         
     }
     return self;
@@ -68,6 +65,15 @@
 - (void)setIsNeedBlur:(BOOL)isNeedBlur{
     _isNeedBlur = isNeedBlur;
     
+}
+
+- (void)setBounce:(BOOL)bounce{
+    _bounce = bounce;
+    if (bounce) {
+        // 添加手势
+        [self addGestureRecognizer:self.tapGesture];
+        [self addGestureRecognizer:self.panGesture];
+    }
 }
 
 - (void)setBlurStyle:(WGBCommonAlertSheetViewBlurEffectStyle)blurStyle{
@@ -185,7 +191,7 @@
 ///MARK: - HandleGesture
 - (void)handleTapGesture:(UITapGestureRecognizer *)tapGesture {
     CGPoint point = [tapGesture locationInView:self.containerView];
-    if (![self.containerView.layer containsPoint:point] && tapGesture.view == self) {
+    if (![self.containerView.layer containsPoint:point] && tapGesture.view == self && self.touchDismiss) {
         [self dismiss];
     }
 }
