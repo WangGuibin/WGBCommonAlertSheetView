@@ -1,6 +1,5 @@
 //
 //  WGBCommonAlertSheetView.h
-//  DY-ios
 //
 //  Created by mac on 2019/9/2.
 //  Copyright © 2019 CoderWGB. All rights reserved.
@@ -15,20 +14,6 @@ typedef NS_ENUM(NSInteger, WGBCommonAlertSheetViewBlurEffectStyle) {
 
 
 NS_ASSUME_NONNULL_BEGIN
-
-/**
- Usage:
- ```objc
- 
-     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 500) style:(UITableViewStylePlain)];
-     tableView.backgroundColor = randomColor;
-     WGBCommonAlertSheetView *sheet = [[WGBCommonAlertSheetView alloc] initWithFrame:UIScreen.mainScreen.bounds containerView:tableView];
-     sheet.isNeedBlur = arc4random()%2;
-     sheet.blurStyle = arc4random()%2+1;
-     sheet.touchDismiss = YES;
-     [sheet show];
- ```
- */
 
 @interface WGBCommonAlertSheetView : UIView
 

@@ -1,6 +1,5 @@
 //
 //  WGBCommonAlertSheetView.m
-//  DY-ios
 //
 //  Created by mac on 2019/9/2.
 //  Copyright © 2019 CoderWGB. All rights reserved.
