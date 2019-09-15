@@ -1,7 +1,6 @@
 # WGBCommonAlertSheetView
 
 <p align='center'>
-<a href="https://cocoapods.org/pods/WGBCommonAlertSheetView"> <img src="https://img.shields.io/cocoapods/p/WGBCommonAlertSheetView.svg?style=flat">  </a>
 <img src="https://img.shields.io/badge/build-passing-brightgreen.svg">
 <a href="https://cocoapods.org/pods/WGBCommonAlertSheetView"> <img src="https://img.shields.io/cocoapods/v/WGBCommonAlertSheetView.svg?style=flat"> </a>
 <img src="https://img.shields.io/badge/platform-iOS-ff69b4.svg">
