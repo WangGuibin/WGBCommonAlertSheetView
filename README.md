@@ -7,7 +7,7 @@
 <img src="https://img.shields.io/badge/language-Objective--C-orange.svg">
 <a href=""><img src="https://img.shields.io/badge/license-MIT-000000.svg"></a>
 <a href="http://wangguibin.github.io"><img src="https://img.shields.io/badge/Blog-CoderWGB-80d4f9.svg?style=flat"></a>
-<img src="https://img.shields.io/badge/Used-welcome%20!-brightgreen.svg?colorA=a0cd34">
+<img src="https://img.shields.io/badge/Enjoy-it%20!-brightgreen.svg?colorA=a0cd34">
 </p>
 
 
