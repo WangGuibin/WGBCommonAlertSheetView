@@ -95,10 +95,17 @@
 
 - (void)showAlertWithSuperView:(UIView * _Nullable)superView {
     if (!superView) {
-        [self showAlertWithSuperView:[UIApplication sharedApplication].keyWindow];
-    }else{
-        [superView addSubview: self];
+        superView = [UIApplication sharedApplication].keyWindow;
     }
+    
+    for (UIView *view in superView.subviews) {
+        if ([view isKindOfClass:[WGBCommonAlertSheetView class]]) {
+            ///FIXME:- 2019/11/22 16:06 防止点击过快(光速QA/单身30年的手速)同一个弹窗重复弹出的现象
+            return;
+        }
+    }
+
+    [superView addSubview: self];
     [self moveToSuperviewAction];
 }
 
