@@ -12,6 +12,12 @@ typedef NS_ENUM(NSInteger, WGBCommonAlertSheetViewBlurEffectStyle) {
     WGBCommonAlertSheetViewBlurEffectStyleDark
 } ;
 
+typedef NS_ENUM(NSInteger, WGBCommonAlertSheetViewSensitivity) {
+    WGBCommonAlertSheetViewSensitivityNomal,
+    WGBCommonAlertSheetViewSensitivityQuick,
+    WGBCommonAlertSheetViewSensitivitySlow
+};
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -44,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 //毛玻璃的样式 这个必须设置不然没有任何效果 前提是`isNeedBlur=YES`
 @property (nonatomic,assign) WGBCommonAlertSheetViewBlurEffectStyle blurStyle;
+
+/// 灵敏度默认Nomal, 响应手势的灵敏度
+@property (nonatomic,assign) WGBCommonAlertSheetViewSensitivity sensitivity;
 
 //展示到指定父视图上 superView为空即默认为放在主窗口keywindow上
 - (void)showAlertWithSuperView:(UIView * _Nullable)superView ;
