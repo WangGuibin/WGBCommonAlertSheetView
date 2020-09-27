@@ -223,8 +223,8 @@
 - (void)handlePanGesture:(UIPanGestureRecognizer *)panGesture {
     CGPoint translation = [panGesture translationInView:self.containerView];
     if (self.isDragScrollView) {
-        // 当UIScrollView在最顶部时，处理视图的滑动
-        if (self.scrollView.contentOffset.y <= 0) {
+        // 当UIScrollView在最顶部时，处理视图的滑动, -1对于containerView为纵向滑动影响不大, 但是对于横向滑动很重要.
+        if (self.scrollView.contentOffset.y <= -1) {
             if (translation.y > 0) { // 向下拖拽
                 CGPoint oldPoint = self.scrollView.contentOffset;
                 oldPoint.y = 0;
