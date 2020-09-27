@@ -226,7 +226,9 @@
         // 当UIScrollView在最顶部时，处理视图的滑动
         if (self.scrollView.contentOffset.y <= 0) {
             if (translation.y > 0) { // 向下拖拽
-                self.scrollView.contentOffset = CGPointZero;
+                CGPoint oldPoint = self.scrollView.contentOffset;
+                oldPoint.y = 0;
+                self.scrollView.contentOffset = oldPoint;
                 self.scrollView.panGestureRecognizer.enabled = NO;
                 self.isDragScrollView = NO;
                 CGRect contentFrame = self.containerView.frame;
