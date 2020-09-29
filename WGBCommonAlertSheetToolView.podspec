@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'WGBCommonAlertSheetView'
-  s.version          = '1.0.1'
-  s.summary          = 'A short description of WGBCommonAlertSheetView.'
+  s.name             = 'WGBCommonAlertSheetToolView'
+  s.version          = '1.0.2'
+  s.summary          = 'A short description of WGBCommonAlertSheetToolView.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,13 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+ 一个仿抖音评论的一个底部弹出窗工具,集成方便,使用简单
                        DESC
 
   s.homepage         = 'https://github.com/Wangguibin/WGBCommonAlertSheetView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Wangguibin' => 'guchengye153@gmail.com' }
+  s.author           = { 'Wangguibin' => '864562082@qq.com' }
   s.source           = { :git => 'https://github.com/Wangguibin/WGBCommonAlertSheetView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 

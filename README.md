@@ -37,8 +37,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 WGBCommonAlertSheetView is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
+**pod修改名字了,以前的google邮箱密码都忘记了,绑定的手机也丢失了没法验证...大写的尴尬!!!**
+
 ```ruby
-pod 'WGBCommonAlertSheetView'
+pod 'WGBCommonAlertSheetToolView'
 ```
 
 ## Author
