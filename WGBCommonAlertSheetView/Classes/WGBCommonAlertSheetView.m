@@ -27,6 +27,9 @@
 @property (nonatomic, assign) BOOL                      isDragScrollView;
 @property (nonatomic, assign) CGFloat                   lastTransitionY;
 
+@property (nonatomic, assign) CGFloat                   ratioY;
+@property (nonatomic, assign) CGFloat                   maxDismissDragScrollY;
+
 @end
 
 
@@ -48,7 +51,8 @@
         self.touchDismiss = YES;
         self.isNeedBlur = NO;
         self.bounce = YES;
-        
+        self.ratioY = 1.5;
+        self.maxDismissDragScrollY = 15;
     }
     return self;
 }
@@ -88,6 +92,19 @@
     }
 }
 
+- (void)setSensitivity:(WGBCommonAlertSheetViewSensitivity)sensitivity {
+    if (sensitivity == WGBCommonAlertSheetViewSensitivityQuick) {
+        self.ratioY = 1.0;
+        self.maxDismissDragScrollY = 5;
+    } else if(sensitivity == WGBCommonAlertSheetViewSensitivitySlow){
+        self.ratioY = 2.0;
+        self.maxDismissDragScrollY = 25;
+    } else {
+        self.ratioY = 1.5;
+        self.maxDismissDragScrollY = 15;
+    }
+}
+
 ///MARK:- show & dismiss
 - (void)show{
     [self showAlertWithSuperView:nil];
@@ -104,7 +121,7 @@
             return;
         }
     }
-
+    
     [superView addSubview: self];
     [self moveToSuperviewAction];
 }
@@ -151,7 +168,7 @@
     if (gestureRecognizer == self.panGesture) {
         UIView *touchView = touch.view;
         while (touchView != nil) {
-            if ([touchView isKindOfClass:[UIScrollView class]]) { 
+            if ([touchView isKindOfClass:[UIScrollView class]]) {
                 self.scrollView = (UIScrollView *)touchView;
                 self.isDragScrollView = YES;
                 break;
@@ -206,15 +223,16 @@
 - (void)handlePanGesture:(UIPanGestureRecognizer *)panGesture {
     CGPoint translation = [panGesture translationInView:self.containerView];
     if (self.isDragScrollView) {
-        // 当UIScrollView在最顶部时，处理视图的滑动
-        if (self.scrollView.contentOffset.y <= 0) {
+        // 当UIScrollView在最顶部时，处理视图的滑动, -1对于containerView为纵向滑动影响不大, 但是对于横向滑动很重要.
+        if (self.scrollView.contentOffset.y <= -1) {
             if (translation.y > 0) { // 向下拖拽
-                self.scrollView.contentOffset = CGPointZero;
+                CGPoint oldPoint = self.scrollView.contentOffset;
+                oldPoint.y = 0;
+                self.scrollView.contentOffset = oldPoint;
                 self.scrollView.panGestureRecognizer.enabled = NO;
                 self.isDragScrollView = NO;
-                
                 CGRect contentFrame = self.containerView.frame;
-                contentFrame.origin.y += translation.y;
+                contentFrame.origin.y += translation.y/self.ratioY;
                 self.containerView.frame = contentFrame;
             }
         }
@@ -223,7 +241,7 @@
         
         if (translation.y > 0) { // 向下拖拽
             CGRect contentFrame = self.containerView.frame;
-            contentFrame.origin.y += translation.y;
+            contentFrame.origin.y += translation.y/self.ratioY;
             self.containerView.frame = contentFrame;
         }else if (translation.y < 0 && self.containerView.frame.origin.y > contentM) { // 向上拖拽
             CGRect contentFrame = self.containerView.frame;
@@ -239,8 +257,8 @@
         
         self.scrollView.panGestureRecognizer.enabled = YES;
         
-        // 结束时的速度>0 滑动距离> 5 且UIScrollView滑动到最顶部
-        if (velocity.y > 0 && self.lastTransitionY > 5 && !self.isDragScrollView) {
+        // 结束时的速度>0 滑动距离> maxDismissDragScrollY 且UIScrollView滑动到最顶部
+        if (velocity.y > 0 && self.lastTransitionY > self.maxDismissDragScrollY && !self.isDragScrollView) {
             [self dismiss];
         }else {
             [self moveToSuperviewAction];
